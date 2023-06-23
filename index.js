@@ -1,0 +1,38 @@
+const express = require('express');
+const multer = require('multer');
+
+const app = express();
+
+const upload = require("./multer.js")
+
+const {uploadForSingleVideo , uploadMultiImage} = require("./uploadHandle.js")
+
+// // making home file
+
+
+
+// // // Below two lines used in showing home page --->
+app.use(express.static(process.cwd() + "/public"))
+
+app.get("/" , (req , res)=>{
+    // res.status(200).send("Hello World")
+
+    res.sendFile("/index.html")
+})
+
+
+// Define a route to handle file uploads
+
+// // // single image upload -------->
+// app.post('/upload2', upload.single('file'), uploadForSingle);
+
+// // // multiple image upload --------------->
+app.post('/upload2', upload.array("file"), uploadMultiImage );
+
+// // // Single video upload -------->
+
+app.post('/upload3', upload.array("file"), uploadForSingleVideo );
+
+
+
+app.listen(3000, () => console.log('Server is started at port number 3000'));

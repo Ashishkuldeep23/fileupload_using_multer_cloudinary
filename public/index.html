@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="!">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>File upload with Multer</title>
+
+        <link rel="stylesheet" href="./style.css">
+
+
+    </head>
+
+    <body>
+
+        <main>
+
+            <div class="mainDiv">
+
+
+                <div class="innerDiv">
+
+                    <div class="punchC">
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <!-- This div used as main content of this page. ==> -->
+                    <div class="content">
+
+
+
+                        <!-- Loading code from loading io -->
+                        <div id="spinner" class="lds-roller">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+
+
+
+
+
+                        <div class="heading">
+                            <h2>File upload on Cloudinary using Multer</h2>
+                        </div>
+
+                        <div class="first">
+                            <h3>Upload Images here</h3>
+                            <p>Open multiple images that you want to upload.</p>
+                            <p>After opening wait for 5 or 10 seconds</p>
+
+                            <form action="" enctype="multipart/form-data">
+
+                                <input type="file" id="input_image" name="file" accept="image/jpg,image/png,image/jpeg"
+                                    required multiple>
+
+                                <div id="first_res"></div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <div class="lastNavi">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+
+
+        <script>
+
+            // // // Below is function for post image ------->
+            document.querySelector('#input_image').addEventListener('change', event => {
+                handleImageUpload(event)
+            })
+
+            async function handleImageUpload(event) {
+                // console.log(event)
+
+
+                const file = event.target.files
+
+                // console.log( typeof file)
+                // console.log(file)
+
+                const formData = new FormData()
+
+                for (let key in file) {
+                    // console.log(file[key])
+                    formData.append(`file`, file[key])
+                }
+
+                // formData.append('file', {...file})
+
+                // console.log(formData)
+
+                document.querySelector(".first").style.filter = "blur(10px)";
+                document.querySelector("#spinner").style.visibility = "visible"
+
+
+
+
+                let Option = {
+                    method: "POST",
+                    body: formData
+                }
+
+
+                let req = await fetch("/upload2", Option)
+                let json = await req.json()
+
+                // console.log(json)
+
+
+                if (json.status === false) {
+                    alert(json.message)
+
+                    document.querySelector(".first").style.filter = "none";
+                    document.querySelector("#spinner").style.visibility = "hidden"
+
+
+
+                }
+                else {
+
+                    document.querySelector(".first").style.filter = "none";
+                    document.querySelector("#spinner").style.visibility = "hidden"
+
+
+                    const arrOfURL = json.data
+
+                    let divForRes = `<div>All ${arrOfURL.length} files uploaded successfully</div>`
+
+                    for (let i = 0; i < arrOfURL.length; i++) {
+
+                        divForRes += ` <div> <b>${i+1}</b> <p>${arrOfURL[i]} </p> <img src="${arrOfURL[i]}" />  </div> `
+
+                    }
+
+                    document.getElementById("first_res").innerHTML = divForRes
+
+
+
+                }
+
+
+
+            }
+
+
+
+        </script>
+
+    </body>
+
+</html>
