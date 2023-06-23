@@ -89,72 +89,82 @@
             })
 
             async function handleImageUpload(event) {
-                // console.log(event)
+
+                try {
+
+                    // console.log(event)
 
 
-                const file = event.target.files
+                    const file = event.target.files
 
-                // console.log( typeof file)
-                // console.log(file)
+                    // console.log( typeof file)
+                    // console.log(file)
 
-                const formData = new FormData()
+                    const formData = new FormData()
 
-                for (let key in file) {
-                    // console.log(file[key])
-                    formData.append(`file`, file[key])
-                }
+                    for (let key in file) {
+                        // console.log(file[key])
+                        formData.append(`file`, file[key])
+                    }
 
-                // formData.append('file', {...file})
+                    // formData.append('file', {...file})
 
-                // console.log(formData)
+                    // console.log(formData)
 
-                document.querySelector(".first").style.filter = "blur(10px)";
-                document.querySelector("#spinner").style.visibility = "visible"
-
-
-
-
-                let Option = {
-                    method: "POST",
-                    body: formData
-                }
-
-
-                let req = await fetch("/upload2", Option)
-                let json = await req.json()
-
-                // console.log(json)
-
-
-                if (json.status === false) {
-                    alert(json.message)
-
-                    document.querySelector(".first").style.filter = "none";
-                    document.querySelector("#spinner").style.visibility = "hidden"
+                    document.querySelector(".first").style.filter = "blur(10px)";
+                    document.querySelector("#spinner").style.visibility = "visible"
 
 
 
-                }
-                else {
 
-                    document.querySelector(".first").style.filter = "none";
-                    document.querySelector("#spinner").style.visibility = "hidden"
+                    let Option = {
+                        method: "POST",
+                        body: formData
+                    }
 
 
-                    const arrOfURL = json.data
+                    let req = await fetch("/upload2", Option)
+                    let json = await req.json()
 
-                    let divForRes = `<div>All ${arrOfURL.length} files uploaded successfully</div>`
+                    // console.log(json)
 
-                    for (let i = 0; i < arrOfURL.length; i++) {
 
-                        divForRes += ` <div> <b>${i+1}</b> <p>${arrOfURL[i]} </p> <img src="${arrOfURL[i]}" />  </div> `
+                    if (json.status === false) {
+                        alert(json.message)
+
+                        document.querySelector(".first").style.filter = "none";
+                        document.querySelector("#spinner").style.visibility = "hidden"
+
+
+
+                    }
+                    else {
+
+                        document.querySelector(".first").style.filter = "none";
+                        document.querySelector("#spinner").style.visibility = "hidden"
+
+
+                        const arrOfURL = json.data
+
+                        let divForRes = `<div>All ${arrOfURL.length} files uploaded successfully</div>`
+
+                        for (let i = 0; i < arrOfURL.length; i++) {
+
+                            divForRes += ` <div> <b>${i + 1}</b> <p>${arrOfURL[i]} </p> <img src="${arrOfURL[i]}" />  </div> `
+
+                        }
+
+                        document.getElementById("first_res").innerHTML = divForRes
+
+
 
                     }
 
-                    document.getElementById("first_res").innerHTML = divForRes
-
-
-
+                } catch (err) {
+                    document.querySelector(".first").style.filter = "none";
+                    document.querySelector("#spinner").style.visibility = "hidden"
+                    console.log(err)
+                    return (err.message)
                 }
 
 
