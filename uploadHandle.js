@@ -36,13 +36,13 @@ async function uploadMultiImage(req , res){
             // console.log(result)
 
 
-            try {
-                // // // Below code is used for delete file after uploading successfully -------->
-                fs.unlinkSync(process.cwd()  +'\\uploads\\'+ result.original_filename + "." + result.format);
-                console.log("Delete File successfully.");
-            } catch (error) {
-                console.log(error);
-            }
+            // try {
+            //     // // // Below code is used for delete file after uploading successfully -------->
+            //     fs.unlinkSync(process.cwd()  +'\\uploads\\'+ result.original_filename + "." + result.format);
+            //     console.log("Delete File successfully.");
+            // } catch (error) {
+            //     console.log(error);
+            // }
 
             resultArr.push(result.url)
 

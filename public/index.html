@@ -155,6 +155,7 @@
 
                 let divForRes = `<div>${imgURLData.length} files got.</div>`
 
+                // // // for all images
                 for (let i = 0; i < imgURLData.length; i++) {
 
                     divForRes += ` <div> <b>${i + 1}</b> <p>${imgURLData[i]} </p> <img src="${imgURLData[i]}" />  </div> `
@@ -162,7 +163,9 @@
                 }
 
 
-                // // // Here video ------>
+
+
+                // // // for all videos ------>
 
                 document.getElementById("all_upload_res_div").innerHTML = divForRes
 
