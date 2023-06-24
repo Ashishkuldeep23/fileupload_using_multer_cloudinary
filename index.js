@@ -34,5 +34,5 @@ app.post('/upload2', upload.array("file"), uploadMultiImage );
 app.post('/upload3', upload.array("file"), uploadForSingleVideo );
 
 
-
-app.listen(3000, () => console.log('Server is started at port number 3000'));
+const port = 3000 || process.env.PORT
+app.listen(port, () => console.log('Server is started at port number ' + port));
