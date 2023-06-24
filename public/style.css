@@ -8,6 +8,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: #C9D7F8;
+    background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
 }
 
 
@@ -95,7 +98,7 @@ main{
 }
 
 
-.content > .heading{
+.heading{
     border: 1px solid black;
     margin: 1vh 0;
     background-color: cyan;
@@ -103,6 +106,7 @@ main{
     font-weight: bold;
     font-size: 1.2rem;
     border-radius: 2vh;
+    margin-bottom: 5vh;
 }
 
 
@@ -111,6 +115,12 @@ main{
     margin: 1vh 0;
     border-radius: 2vh;
 
+    background-color: blanchedalmond;
+}
+
+.first > h3{
+  text-shadow: 2px 1px 2px white;
+  text-decoration: underline;
 }
 
 
@@ -143,6 +153,35 @@ main{
     object-fit: contain;    
 }
 
+
+
+.second{
+  border: 1px solid;
+  margin: 1vh 0;
+  border-radius: 2vh;
+
+  background-color: greenyellow;
+}
+
+.second > h3{
+  text-shadow: 2px 1px 2px white;
+  text-decoration: underline;
+
+}
+
+
+#input_video{
+  margin: 1vh 0;
+}
+
+
+.third{
+  border: 1px solid;
+  margin: 1vh 0;
+  border-radius: 2vh;
+
+  background-color: skyblue;
+}
 
 
 
@@ -279,8 +318,19 @@ main{
 @media (max-width:905px) {
     .mainDiv{
 
+        width: 45vh;
+        height: 80vh;
+        min-height: 80vh;
+
+    }
+}
+
+@media (max-width:805px) {
+    .mainDiv{
+
         width: 40vh;
         height: 75vh;
+        min-height: 75vh;
 
     }
 }
