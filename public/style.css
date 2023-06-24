@@ -319,8 +319,8 @@ main{
     .mainDiv{
 
         width: 45vh;
-        height: 80vh;
-        min-height: 80vh;
+        height: 85vh;
+        min-height: 85vh;
 
     }
 }
@@ -329,8 +329,8 @@ main{
     .mainDiv{
 
         width: 40vh;
-        height: 75vh;
-        min-height: 75vh;
+        height: 80vh;
+        min-height: 80vh;
 
     }
 }
