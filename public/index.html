@@ -58,8 +58,9 @@
 
                             <form action="" enctype="multipart/form-data">
 
-                                <input type="file" id="input_image" name="file" accept="image/jpg,image/png,image/jpeg"
-                                    required multiple>
+                                <!-- accept attribute can have like that ===> [accept="image/jpg,image/png,image/jpeg"] or [image/*] both are same , read about more on mdn html file tag  -->
+
+                                <input type="file" id="input_image" name="file" accept="image/*" required multiple>
 
                                 <div id="first_res"></div>
 
@@ -73,8 +74,8 @@
 
                             <form action="" enctype="multipart/form-data">
 
-                                <input type="file" id="input_video" name="file" accept=""
-                                    required multiple>
+                                <input type="file" id="input_video" name="file" accept="video/*" required multiple
+                                    size="3000000">
 
                                 <div id="second_res"></div>
 
@@ -87,9 +88,20 @@
                             <h3>This web devloped by Ashish Kuldeep</h3>
                             <p>This website build using NodeJs</p>
                             <p>In nodejs i have used ExpressJs , Multer and Cloudinary.</p>
-                            <p>After geting URL, once you successfully upload images or videos, You can use url in your html or in your project</p>
-                            <p>Your data is safe only i can see on my Cloudinary account.(Don't share anything , that you not wnat to show anyone.)</p>
+                            <p>After geting URL, once you successfully upload images or videos, You can use url in your
+                                html or in your project</p>
+                            <p>Your data is safe only i can see on my Cloudinary account.(Don't share anything personal,
+                                that you not want to show anyone.)</p>
                             <p>Thank you for reading and visiting.</p>
+                        </div>
+
+
+                        <div id="all_previous">
+                            <h3>This web devloped by Ashish Kuldeep</h3>
+                            <p>This website build using NodeJs</p>
+                            <button id="show_all_uploads" onclick="showAllUploads()">Show All Uploads</button>
+
+                            <div id="all_upload_res_div"></div>
                         </div>
 
 
@@ -112,7 +124,57 @@
 
         <script>
 
-            // // // Below is function for post image ------->
+            // // // Get localstrorage ---------->
+
+            // // For Images
+            let imgURL = localStorage.getItem("uploadedImgURL")
+
+            if (imgURL) {
+                // alert(imgURL)
+                // console.log(imgURL)
+
+                document.getElementById("show_all_uploads").style.visibility = "visible"
+                document.getElementById("show_all_uploads").style.display = "inline"
+
+            }
+
+            // // For Videos
+
+
+
+
+
+
+
+
+            // // // Below function for showing all uploads -------------->
+
+            function showAllUploads() {
+
+                let imgURLData = JSON.parse(imgURL)
+
+                let divForRes = `<div>${imgURLData.length} files got.</div>`
+
+                for (let i = 0; i < imgURLData.length; i++) {
+
+                    divForRes += ` <div> <b>${i + 1}</b> <p>${imgURLData[i]} </p> <img src="${imgURLData[i]}" />  </div> `
+
+                }
+
+
+                // // // Here video ------>
+
+                document.getElementById("all_upload_res_div").innerHTML = divForRes
+
+            }
+
+
+
+
+
+
+
+            // // // Below is function for post images (starts) ------->
             document.querySelector('#input_image').addEventListener('change', event => {
                 handleImageUpload(event)
             })
@@ -186,6 +248,7 @@
                         document.getElementById("first_res").innerHTML = divForRes
 
 
+                        localStorage.setItem("uploadedImgURL", JSON.stringify(arrOfURL))
 
                     }
 
@@ -199,6 +262,26 @@
 
 
             }
+
+
+            // // // above function for post images (ends) ------->
+
+
+
+
+            // // // Below function for post videos (starts) --------------->
+
+            document.querySelector('#input_video').addEventListener('change', event => {
+                handleVideoUpload(event)
+            })
+
+
+            async function handleVideoUpload(e) {
+                alert("Ok working .....")
+            }
+
+
+            // // // Below function for post videos (ends) --------------->
 
 
 
