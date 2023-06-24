@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1 , user-scalable=no">
 
         <!-- Now i have cloudinary link for my favicon image haha haha -->
-        <link rel="icon" type="image/x-icon"   href="http://res.cloudinary.com/dlvq8n2ca/image/upload/v1680519379/dkctqfv2bqkrdq3ggen5.png" >
+        <link rel="icon" type="image/x-icon"
+            href="http://res.cloudinary.com/dlvq8n2ca/image/upload/v1680519379/dkctqfv2bqkrdq3ggen5.png">
 
         <title>File upload with Multer</title>
 
@@ -58,7 +59,7 @@
                         <div class="first">
                             <h3>Upload Images here</h3>
                             <p>Open multiple images that you want to upload.</p>
-                            <p>After opening wait for 5 or 10 seconds</p>
+                            <p>After opening wait for 10 or 15 seconds</p>
 
                             <form action="" enctype="multipart/form-data">
 
@@ -74,7 +75,7 @@
                         <div class="second">
                             <h3>Upload Videos here</h3>
                             <p>Open multiple videos that you want to upload.</p>
-                            <p>After opening wait for 10 or 15 seconds</p>
+                            <p>After opening wait for 10 or 20 seconds</p>
 
                             <form action="" enctype="multipart/form-data">
 
@@ -101,10 +102,10 @@
 
 
                         <div id="all_previous">
-                            <h3>This web devloped by Ashish Kuldeep</h3>
-                            <p>This website build using NodeJs</p>
+                            <h3>See all previous uploads</h3>
+                            <p>Here you can see your previous uploads, by click on button.</p>
+                            <p>Once you successfully upload then button is visible</p>
                             <button id="show_all_uploads" onclick="showAllUploads()">Show All Uploads</button>
-
                             <div id="all_upload_res_div"></div>
                         </div>
 
@@ -132,6 +133,7 @@
 
             // // For Images
             let imgURL = localStorage.getItem("uploadedImgURL")
+            let VidURL = localStorage.getItem("uploadedVidURL")
 
             if (imgURL) {
                 // alert(imgURL)
@@ -139,12 +141,17 @@
 
                 document.getElementById("show_all_uploads").style.visibility = "visible"
                 document.getElementById("show_all_uploads").style.display = "inline"
-
             }
 
             // // For Videos
 
+            if (VidURL) {
+                // alert(imgURL)
+                // console.log(imgURL)
 
+                document.getElementById("show_all_uploads").style.visibility = "visible"
+                document.getElementById("show_all_uploads").style.display = "inline"
+            }
 
 
 
@@ -156,20 +163,34 @@
             function showAllUploads() {
 
                 let imgURLData = JSON.parse(imgURL)
+                let vidURLData = JSON.parse(VidURL)
 
-                let divForRes = `<div>${imgURLData.length} files got.</div>`
 
-                // // // for all images
-                for (let i = 0; i < imgURLData.length; i++) {
+                let divForRes = `<div>${imgURLData.length || 0 + vidURLData.length || 0} files got.</div>`
 
-                    divForRes += ` <div> <b>${i + 1}</b> <p>${imgURLData[i]} </p> <img src="${imgURLData[i]}" />  </div> `
+
+                if (imgURLData.length > 0) {
+                    // // // for all images
+                    for (let i = 0; i < imgURLData.length; i++) {
+
+                        divForRes += ` <div> <b>${i + 1}</b> <p>${imgURLData[i]} </p> <img src="${imgURLData[i]}" />  </div> `
+
+                    }
 
                 }
 
 
 
+                if (vidURLData.length > 0) {
+                    // // // for all images
+                    for (let i = 0; i < vidURLData.length; i++) {
 
-                // // // for all videos ------>
+                        divForRes += ` <div> <b>${i + 1}</b> <p>${vidURLData[i]} </p> <video controls><source src="${vidURLData[i]}" type="video/mp4"></video> </div> `
+
+                    }
+
+                }
+
 
                 document.getElementById("all_upload_res_div").innerHTML = divForRes
 
@@ -263,7 +284,7 @@
                     document.querySelector(".first").style.filter = "none";
                     document.querySelector("#spinner").style.visibility = "hidden"
                     console.log(err)
-                    return (err.message)
+                    return alert(err.message)
                 }
 
 
@@ -284,7 +305,71 @@
 
 
             async function handleVideoUpload(e) {
-                alert("Ok working .....")
+                try {
+
+
+                    const file = event.target.files
+
+                    const formData = new FormData()
+
+                    for (let key in file) {
+                        // console.log(file[key])
+                        formData.append(`file`, file[key])
+                    }
+
+                    document.querySelector(".second").style.filter = "blur(10px)";
+                    document.querySelector("#spinner").style.visibility = "visible"
+
+
+                    let Option = {
+                        method: "POST",
+                        body: formData
+                    }
+
+
+                    let req = await fetch("/upload3", Option)
+                    let json = await req.json()
+
+
+
+                    if (json.status === false) {
+                        alert(json.message)
+
+                        document.querySelector(".second").style.filter = "none";
+                        document.querySelector("#spinner").style.visibility = "hidden"
+                    }
+                    else {
+
+                        document.querySelector(".second").style.filter = "none";
+                        document.querySelector("#spinner").style.visibility = "hidden"
+
+
+                        const arrOfURL = json.data
+
+                        let divForRes = `<div>All ${arrOfURL.length} files uploaded successfully</div>`
+
+                        for (let i = 0; i < arrOfURL.length; i++) {
+
+                            divForRes += ` <div> <b>${i + 1}</b> <p>${arrOfURL[i]} </p> <video controls><source src="${arrOfURL[i]}" type="video/mp4"></video>  </div> `
+
+                        }
+
+                        document.getElementById("second_res").innerHTML = divForRes
+
+
+                        localStorage.setItem("uploadedVidURL", JSON.stringify(arrOfURL))
+
+                    }
+
+
+
+
+                } catch (e) {
+                    document.querySelector(".second").style.filter = "none";
+                    document.querySelector("#spinner").style.visibility = "hidden"
+                    console.log(e)
+                    return alert(e.message)
+                }
             }
 
 

@@ -10,7 +10,7 @@ cloudinary.config({
 const fs = require("fs")
 
 
-async function uploadMultiImage(req , res){
+async function uploadMultiImage(req, res) {
 
     try {
         const file = req.files;
@@ -28,7 +28,7 @@ async function uploadMultiImage(req , res){
 
         // // // Below for loop for upload pictures --------->
 
-        for(let i=0 ; i<req.files.length ; i++){
+        for (let i = 0; i < req.files.length; i++) {
 
             let filePathIs = req.files[i].path
             let result = await cloudinary.uploader.upload(filePathIs)
@@ -49,7 +49,7 @@ async function uploadMultiImage(req , res){
         }
 
         console.log("Response given to frontend.")
-        return res.status(200).send({status : true , data : resultArr})
+        return res.status(201).send({ status: true, data: resultArr })
 
     } catch (error) {
         return res.status(500).send({ status: false, message: error.message })
@@ -75,27 +75,38 @@ async function uploadForSingleVideo(req, res) {
         // res.send('File uploaded successfully');
 
 
-
-        await cloudinary.uploader.upload(file[0].path, {
-            resource_type: "video",
-            chunk_size: 6000000,
-            eager: [
-                { width: 300, height: 300, crop: "pad", audio_codec: "none" },
-                { width: 160, height: 100, crop: "crop", gravity: "south"}],
-            eager_async: true,
-            eager_notification_url: "https://mysite.example.com/notify_endpoint"
-        }, (err, ress) => {
-
-            if (err) {
-                console.log(err)
-                return res.send(`err :- ${err}`)
-            }
-
-            return res.send(ress)
+        let resArr = []
+        let breakk = true
 
 
-        })
+        for (let i = 0; i < req.files.length && breakk; i++) {
 
+            let filePath =  req.files[i].path
+
+            await cloudinary.uploader.upload(filePath , {
+                resource_type: "video",
+                chunk_size: 6000000,
+                eager: [
+                    { width: 300, height: 300, crop: "pad", audio_codec: "none" },
+                    { width: 160, height: 100, crop: "crop", gravity: "south" }],
+                eager_async: true,
+                eager_notification_url: "https://mysite.example.com/notify_endpoint"
+            }, (err, ress) => {
+
+                if(err) {
+                    console.log(err)
+                    breakk = false
+                return res.status(404).send({status : false , message : `Get error in ${i+1}th file uploading`})
+                }
+
+                resArr.push(ress.url)
+
+            })
+
+        }
+
+        console.log("Response given to frontend.")
+        return res.status(201).send({ status: true, data: resArr })
 
     } catch (error) {
         return res.status(500).send({ status: false, message: error.message })
@@ -107,4 +118,4 @@ async function uploadForSingleVideo(req, res) {
 
 
 
-module.exports = { uploadForSingleVideo , uploadMultiImage}
+module.exports = { uploadForSingleVideo, uploadMultiImage }
