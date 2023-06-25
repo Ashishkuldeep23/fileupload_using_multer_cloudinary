@@ -56,6 +56,9 @@ p {
 
   flex-direction: column;
 
+  background-image: url("https://i.redd.it/bfgroac0lcp81.jpg");
+  background-blend-mode: luminosity;
+
 
 }
 
@@ -131,6 +134,10 @@ p {
 .content>div {
   width: 40vh;
   margin: 1%;
+
+  min-height: 28vh;
+
+  height: fit-content;
 }
 
 
@@ -143,8 +150,36 @@ p {
   font-size: 1.2rem;
   border-radius: 2vh;
   margin-bottom: 5vh;
+
+  width: 100%;
 }
 
+.heading > h2{
+  font-size: 2.5rem;
+}
+
+.heading > button{
+  margin: 0.5vh 0;
+  padding: 0.25vh 0.5vh;
+  border-radius: 1.5vh;
+  background-color: yellow;
+
+}
+
+.heading > button:hover{
+  background-color: red;
+
+}
+
+#about_detail{
+  display: none;
+}
+
+#about_detail > ul > li{
+  text-align: start;
+  list-style: inside;
+  margin: 0 1vh;
+}
 
 .first {
   border: 1px solid;
@@ -253,6 +288,17 @@ p {
 }
 
 
+.contact_info {
+  border: 1px solid;
+  margin: 1vh 0;
+  border-radius: 2vh;
+  padding: 0.5vh;
+
+
+  background-color: honeydew;
+}
+
+
 
 
 #all_previous {
@@ -349,6 +395,15 @@ p {
   display: none;
 }
 
+
+#water_mark{
+  position: absolute;
+  bottom: 2px;
+  right: 10px;
+  font-weight: bolder;
+  color: #fff;
+  text-decoration: underline;
+}
 
 
 /* Code for loading io (Starts) -------> */
@@ -494,6 +549,34 @@ p {
     display: none;
   }
 
+  .content >.heading {
+    margin-bottom: 5vh;
+    padding: 2vh 0;
+    font-size: 0.9rem;
+
+    width: 100%;
+    min-height: fit-content;
+  }
+
+  #all_previous{
+    width: 100%;
+    min-height: fit-content;
+  }
+
+
+  #all_upload_res_div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ 
+  }
+
+  #all_upload_res_div>div {
+
+    margin: 1%;
+    width: 45%;
+  }
+
   .lastNavi {
     display: none;
   }
@@ -527,6 +610,34 @@ p {
 
   .punchC {
     display: none;
+  }
+
+  .content >.heading {
+    margin-bottom: 5vh;
+    padding: 2vh 0;
+    font-size: 0.9rem;
+
+    width: 100%;
+    min-height: fit-content;
+  }
+
+  #all_previous{
+    width: 100%;
+    min-height: fit-content;
+  }
+
+
+  #all_upload_res_div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ 
+  }
+
+  #all_upload_res_div>div {
+
+    margin: 1%;
+    width: 45%;
   }
 
   .lastNavi {
@@ -563,6 +674,10 @@ p {
 
   }
 
+  .heading > h2{
+    font-size: 2rem;
+  }
+
   .innerDiv {
     width: 94%;
     border-radius: 1vh;
@@ -585,14 +700,14 @@ p {
   .content>div {
     width: 80%;
     margin: 1%;
+
+    height: fit-content;
+    min-height: auto;
   }
 
-  .content>.heading {
+  .content >.heading {
     margin-bottom: 5vh;
     padding: 2vh 0;
-  }
-
-  .heading {
     font-size: 0.9rem;
   }
 
@@ -619,8 +734,12 @@ p {
 /* Mobile (Done)*/
 @media ((min-width : 320px) and (max-width : 480px)) {
 
+  .heading > h2{
+    font-size: 1.2rem;
+  }
+
   h3 {
-    font-size: 1.28rem;
+    font-size: 1.2rem;
   }
 
 
@@ -637,18 +756,38 @@ p {
   .content>div {
     width: 90%;
     margin: 1%;
+    height: fit-content;
+    min-height: fit-content;
+
   }
 
   .content>.heading {
     margin-bottom: 5vh;
   }
 
+  #about_detail > ul > li{
+    font-size: 1rem;
+  }
+  
+
+  #all_upload_res_div>div>p {
+    font-size: 0.9rem;
+  }
 }
 
 
 /* Below then mobile */
 
 @media ((min-width : 0px) and (max-width : 320px)) {
+
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .heading > h2{
+    font-size: 1.2rem;
+  }
 
   .mainDiv {
     min-height: 85vh;
@@ -658,10 +797,24 @@ p {
   .content>div {
     width: 90%;
     margin: 1%;
+    height: fit-content;
+    min-height: fit-content;
+
   }
 
   .content>.heading {
     margin-bottom: 5vh;
+    height: fit-content;
+    min-height: fit-content;
+  }
+
+  #about_detail > ul > li{
+    font-size: 1rem;
+  }
+  
+
+  #all_upload_res_div>div>p {
+    font-size: 0.9rem;
   }
 
 

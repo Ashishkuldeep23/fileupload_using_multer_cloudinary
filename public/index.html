@@ -55,6 +55,18 @@
 
                         <div class="heading">
                             <h2>File upload on Cloudinary using Multer</h2>
+
+                            <button onclick="showAbout()">About</button>
+                            <div id="about_detail">
+                                <ul>
+                                    <li>1</li>
+                                    <li>1</li>
+                                    <li>1</li>
+                                    <li>1</li>
+                                    <li>1</li>
+                                </ul>
+                            </div>
+
                         </div>
 
                         <div class="first">
@@ -89,6 +101,13 @@
 
                         </div>
 
+                        <div class="contact_info">
+                            <h3>Contact Me </h3>
+                            <p>Links </p>
+                            <p>Links </p>
+                            <p>Links </p>
+                        </div>
+
 
                         <div class="third">
                             <h3>This web devloped by Ashish Kuldeep</h3>
@@ -100,6 +119,9 @@
                                 that you not want to show anyone.)</p>
                             <p>Thank you for reading and visiting.</p>
                         </div>
+
+
+
 
 
                         <div id="all_previous">
@@ -115,9 +137,7 @@
 
                     </div>
 
-                    <div class="lastNavi">
-
-                    </div>
+                    <div class="lastNavi"></div>
 
                 </div>
 
@@ -128,6 +148,9 @@
 
 
         </main>
+        <p id="water_mark">By Ashish Kuldeep</p>
+
+        
 
 
 
@@ -162,13 +185,31 @@
 
 
 
+            // // //( Show about handler) ------------------>
 
 
-            // // // Below function for showing all uploads -------------->
+            let click2 = 0
+            function showAbout(){
 
+                if(click2%2 === 0){
+                    document.getElementById("about_detail").style.display = "block"
+                }else{
+                    document.getElementById("about_detail").style.display = "none"
+                }
+
+
+                click2++
+            }
+
+
+
+
+
+            // // // Below function for showing all uploads (show all previous upload handler) -------------->
+            let click = 0
             function showAllUploads() {
 
-
+                // console.log(click)
 
                 let imgURLData
                 if (imgURL) {
@@ -213,6 +254,17 @@
 
                 document.getElementById("all_upload_res_div").innerHTML = divForRes
 
+
+
+                if(click%2 === 0){
+                    document.getElementById("all_upload_res_div").style.display = "flex"
+                }else{
+                    document.getElementById("all_upload_res_div").style.display = "none"
+                }
+
+
+                click++
+                // console.log(click)
             }
 
 
