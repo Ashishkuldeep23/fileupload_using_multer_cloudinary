@@ -4,20 +4,34 @@
 }
 
 main {
-  height: 100vh;
+  width: 100%;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   background-color: #C9D7F8;
   background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
 }
 
 
+h3 {
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
 .mainDiv {
   min-height: 95vh;
   height: 95vh;
-  width: 50vh;
+  /* width: 50vh; */
+
+  width: 90%;
+
+
   background-color: black;
 
   border-radius: 7vh;
@@ -108,7 +122,15 @@ main {
 
   border-radius: 4vh;
 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
+}
+
+.content>div {
+  width: 40vh;
+  margin: 1%;
 }
 
 
@@ -194,7 +216,7 @@ main {
 }
 
 
-#second_res{
+#second_res {
   width: 100%;
 }
 
@@ -296,13 +318,13 @@ main {
 #all_upload_res_div>div>img {
   width: 100%;
   object-fit: contain;
-  
+
 }
 
 #all_upload_res_div>div>video {
   width: 100%;
   object-fit: contain;
-  
+
 }
 
 
@@ -312,11 +334,20 @@ main {
   height: 0.5%;
   width: 30%;
   background-color: black;
-  
+
 
   margin: 0.5vh auto;
 }
 
+
+
+#keypad_For_Leptop {
+  display: none;
+}
+
+#last_stand_for_destop {
+  display: none;
+}
 
 
 
@@ -448,20 +479,117 @@ main {
 
 
 
+/* (Frame style) according to all devices -----------------> */
 
+/* Desktop  */
+@media (min-width : 1024px) {
 
-
-
-
-/* Media queries */
-
-@media (max-width:905px) {
   .mainDiv {
+    min-height: 85vh;
+    height: 85vh;
 
-    width: 45vh;
-    height: 88vh;
-    min-height: 88vh;
+  }
 
+  .punchC {
+    display: none;
+  }
+
+  .lastNavi {
+    display: none;
+  }
+
+  #keypad_For_Leptop {
+    display: block;
+    height: 10vh;
+    width: 5%;
+    background-color: black;
+  }
+
+  #last_stand_for_destop{
+    display: block;
+    background-color: black;
+    width: 30%;
+    height: 1vh;
+    border-radius: 50%;
+  }
+}
+
+
+
+/* Leptop */
+@media ((min-width : 768px) and (max-width : 1024px)) {
+
+  .mainDiv {
+    min-height: 80vh;
+    height: 80vh;
+
+  }
+
+  .punchC {
+    display: none;
+  }
+
+  .lastNavi {
+    display: none;
+  }
+
+  #keypad_For_Leptop {
+    display: block;
+    height: 10vh;
+    width: 90%;
+    background-color: black;
+    border-radius: 7vh;
+    transform: rotateX(76deg) translateY(-110px);
+  }
+}
+
+
+
+
+
+/* Tab (Done)*/
+@media ((min-width : 480px) and (max-width : 768px)) {
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .mainDiv {
+    border-radius: 1vh;
+
+  }
+
+  .innerDiv {
+    width: 94%;
+    border-radius: 1vh;
+
+  }
+
+  .punchC {
+    display: none;
+  }
+
+  .content {
+    margin-top: 0;
+  }
+
+  .lastNavi {
+    display: none;
+  }
+
+
+  .content>div {
+    width: 80%;
+    margin: 1%;
+  }
+
+  .content>.heading {
+    margin-bottom: 5vh;
+    padding: 2vh 0;
   }
 
   .heading {
@@ -472,29 +600,63 @@ main {
     font-size: 1rem;
   }
 
+  #second_res>div>p {
+    font-size: 1rem;
+  }
+
 
   #all_upload_res_div>div>p {
     font-size: 1rem;
-
   }
 
 
 
-  .punchC:hover {
-    transform: scale(1.5);
-    left: 48.5%;
-    margin: 1vh auto;
+}
 
+
+
+
+/* Mobile (Done)*/
+@media ((min-width : 320px) and (max-width : 480px)) {
+
+  h3 {
+    font-size: 1.28rem;
+  }
+
+
+  .mainDiv {
+    width: 40vh;
+    min-height: 85vh;
+    height: 85vh;
+  }
+
+  .innerDiv{
+    width: 97.5%;
+  }
+
+  .content>div {
+    width: 90%;
+    margin: 1%;
+  }
+
+  .content>.heading {
+    margin-bottom: 5vh;
   }
 
 }
 
-@media (max-width:805px) {
-  .mainDiv {
 
-    width: 40vh;
-    height: 81vh;
-    min-height: 81vh;
+/* Below then mobile */
 
+@media ((min-width : 0px) and (max-width : 320px)) {
+  .content>div {
+    width: 90%;
+    margin: 1%;
   }
+
+  .content>.heading {
+    margin-bottom: 5vh;
+  }
+
+
 }
