@@ -649,6 +649,12 @@ p {
 /* Below then mobile */
 
 @media ((min-width : 0px) and (max-width : 320px)) {
+
+  .mainDiv {
+    min-height: 85vh;
+    height: 85vh;
+  }
+
   .content>div {
     width: 90%;
     margin: 1%;
