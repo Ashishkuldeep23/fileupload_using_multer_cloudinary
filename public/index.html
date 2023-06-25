@@ -6,8 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1 , user-scalable=no">
 
         <!-- Now i have cloudinary link for my favicon image haha haha -->
-        <link rel="icon" type="image/x-icon"
-            href="http://res.cloudinary.com/dlvq8n2ca/image/upload/v1680519379/dkctqfv2bqkrdq3ggen5.png">
+        <link rel="icon" type="image/png/x-icon/"
+            href="http://res.cloudinary.com/dlvq8n2ca/image/upload/v1687659646/vtw3mugche5es0h4lbhc.png">
+
 
         <title>File upload with Multer</title>
 
@@ -133,7 +134,7 @@
 
             // // For Images
             let imgURL = localStorage.getItem("uploadedImgURL")
-            let VidURL = localStorage.getItem("uploadedVidURL")
+            let vidURL = localStorage.getItem("uploadedVidURL")
 
             if (imgURL) {
                 // alert(imgURL)
@@ -145,7 +146,7 @@
 
             // // For Videos
 
-            if (VidURL) {
+            if (vidURL) {
                 // alert(imgURL)
                 // console.log(imgURL)
 
@@ -162,33 +163,46 @@
 
             function showAllUploads() {
 
-                let imgURLData = JSON.parse(imgURL)
-                let vidURLData = JSON.parse(VidURL)
 
 
-                let divForRes = `<div>${imgURLData.length || 0 + vidURLData.length || 0} files got.</div>`
-
-
-                if (imgURLData.length > 0) {
-                    // // // for all images
-                    for (let i = 0; i < imgURLData.length; i++) {
-
-                        divForRes += ` <div> <b>${i + 1}</b> <p>${imgURLData[i]} </p> <img src="${imgURLData[i]}" />  </div> `
-
-                    }
-
+                let imgURLData
+                if (imgURL) {
+                    imgURLData = JSON.parse(imgURL)
                 }
 
 
 
-                if (vidURLData.length > 0) {
+                let vidURLData
+                if (vidURL) {
+                    vidURLData = JSON.parse(vidURL)
+                }
+
+                let totalUploadsFound = (((imgURL) ? imgURLData.length : 0) + ((vidURL) ? vidURLData.length : 0))
+
+                // console.log(totalUploadsFound)  // // // This is the total uploads found
+
+
+                let divForRes = ` <div>All URLs stored in your browser's LocalStorage</div>  <div>${totalUploadsFound} files got.</div>`
+
+
+                if (imgURL) {
+                    // // // for all images
+                    for (let i = 0; i < imgURLData.length; i++) {
+
+                        divForRes += ` <div> <p>${imgURLData[i]} </p> <img src="${imgURLData[i]}" />  </div> `
+
+                    }
+                }
+
+
+
+                if (vidURL) {
                     // // // for all images
                     for (let i = 0; i < vidURLData.length; i++) {
 
-                        divForRes += ` <div> <b>${i + 1}</b> <p>${vidURLData[i]} </p> <video controls><source src="${vidURLData[i]}" type="video/mp4"></video> </div> `
+                        divForRes += ` <div> <p>${vidURLData[i]} </p> <video controls><source src="${vidURLData[i]}" type="video/mp4"></video> </div> `
 
                     }
-
                 }
 
 
@@ -254,8 +268,6 @@
                         document.querySelector(".first").style.filter = "none";
                         document.querySelector("#spinner").style.visibility = "hidden"
 
-
-
                     }
                     else {
 
@@ -276,6 +288,18 @@
                         document.getElementById("first_res").innerHTML = divForRes
 
 
+                        // // // Getting all previous data from localStorage --------->
+                        let getPreviousImg = localStorage.getItem("uploadedImgURL")
+
+                        if (getPreviousImg) {
+                            let actualData = JSON.parse(getPreviousImg)
+                            actualData.map((ele) => {
+                                arrOfURL.unshift(ele)
+                            })
+                        }
+
+
+                        // // // Setting data into previous from loacalStorage
                         localStorage.setItem("uploadedImgURL", JSON.stringify(arrOfURL))
 
                     }
@@ -355,6 +379,18 @@
                         }
 
                         document.getElementById("second_res").innerHTML = divForRes
+
+
+                        // // // Getting all previous data from localStorage --------->
+                        let getPreviousVid = localStorage.getItem("uploadedVidURL")
+
+                        if (getPreviousVid) {
+                            let actualData = JSON.parse(getPreviousVid)
+                            actualData.map((ele) => {
+                                arrOfURL.unshift(ele)
+                            })
+                        }
+
 
 
                         localStorage.setItem("uploadedVidURL", JSON.stringify(arrOfURL))

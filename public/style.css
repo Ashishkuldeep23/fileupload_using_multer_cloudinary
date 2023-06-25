@@ -153,7 +153,7 @@ main {
   margin: 2.5vh 0;
   border: 1px solid;
   border-radius: 1vh;
-  padding: 1vh 0;
+  padding: 1vh;
   background-color: #e8e8e8;
 }
 
@@ -203,8 +203,8 @@ main {
   margin: 2.5vh 0;
   border: 1px solid;
   border-radius: 1vh;
-  padding: 1vh 0;
   background-color: #e8e8e8;
+  padding: 1vh;
 }
 
 #second_res>div>p {
@@ -283,9 +283,8 @@ main {
   margin: 2.5vh 0;
   border: 1px solid;
   border-radius: 1vh;
-  padding: 1vh 0;
   background-color: #e8e8e8;
-  padding: 0 1vh;
+  padding: 1vh;
 }
 
 #all_upload_res_div>div>p {
