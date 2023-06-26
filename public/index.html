@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1 , user-scalable=no">
 
         <!-- Now i have cloudinary link for my favicon image haha haha -->
-        <link rel="icon" type="image/png/x-icon/"
-            href="../uploads/favicon.pngx">
+        <link rel="icon" type="image/png/x-icon/" href="../uploads/favicon.png">
 
 
         <title>File upload with Multer</title>
@@ -59,15 +58,26 @@
                             <button onclick="showAbout()">About</button>
                             <div id="about_detail">
                                 <ul>
-                                    <li><strong>Multer</strong> :- Multer is a node.js middleware for handling multipart/form-data , which is primarily used for uploading files.</li>
-                                    <li><strong>Cloudinary</strong> :- Cloudinary is a software solution based on Software-as-a-Service (SaaS). It is primarily used for managing all the media assets present in the cloud or Effortlessly optimize, transform, upload and manage your cloud's assets..</li>
+                                    <li><strong>Multer</strong> :- Multer is a node.js middleware for handling
+                                        multipart/form-data , which is primarily used for uploading files.</li>
+                                    <li><strong>Cloudinary</strong> :- Cloudinary is a software solution based on
+                                        Software-as-a-Service (SaaS). It is primarily used for managing all the media
+                                        assets present in the cloud or Effortlessly optimize, transform, upload and
+                                        manage your cloud's assets..</li>
 
-                                    <li>As developers we need to <strong>store our multipart/form-data(Media files like pictures and videos)</strong> somewhere, here is the solution for that <strong> we can store files on cloudinary</strong> by the help of <strong>multer</strong>(because ExpressJs don't have support multipart data).
+                                    <li>As developers we need to <strong>store our multipart/form-data(Media files like
+                                            pictures and videos)</strong> somewhere, here is the solution for that
+                                        <strong> we can store files on cloudinary</strong> by the help of
+                                        <strong>multer</strong>(because ExpressJs don't have support multipart data).
                                     </li>
 
-                                    <li>So by using this website you can <strong>upload your file and you will get the URL link</strong> for that file after uploading successfully and you can <strong>used that URL link in your projects.</strong></li>
+                                    <li>So by using this website you can <strong>upload your file and you will get the
+                                            URL link</strong> for that file after uploading successfully and you can
+                                        <strong>used that URL link in your projects.</strong></li>
 
-                                    <li style="color: red;">Note :- <strong>Don't share anything</strong> that you want to <strong>private</strong> ( <strong>Not everyone can see , but i can see all</strong> pictures and videos that upload on this website).</li>
+                                    <li style="color: red;">Note :- <strong>Don't share anything</strong> that you want
+                                        to <strong>private</strong> ( <strong>Not everyone can see , but i can see
+                                            all</strong> pictures and videos that upload on this website).</li>
                                 </ul>
                             </div>
 
@@ -107,9 +117,25 @@
 
                         <div class="contact_info">
                             <h3>Contact Me </h3>
-                            <p>Links </p>
-                            <p>Links </p>
-                            <p>Links </p>
+                            <div>
+                                <a href="https://www.linkedin.com/in/ashish-kuldeep-09b96018b" target="_blank"><img
+                                        src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Linkedin2_svg-512.png"
+                                        class="logos" alt="Linkedin">
+                                </a>
+
+                                <a href="https://github.com/Ashishkuldeep23" target="_blank"><img
+                                        src="https://cdn3.iconfinder.com/data/icons/social-media-2253/25/Group-512.png"
+                                        class="logos" alt="Github"></a>
+
+                                <a href="https://mobile.twitter.com/ashishkuldeep23" target="_blank"><img
+                                        src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Twitter5_svg-512.png"
+                                        class="logos" alt="Tiwtter"></a>
+
+                                <a href="https://www.youtube.com/" target="_blank"><img
+                                        src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Youtube3_svg-512.png"
+                                        class="logos" alt="Youtube"></a>
+
+                            </div>
                         </div>
 
 
@@ -193,11 +219,11 @@
 
 
             let click2 = 0
-            function showAbout(){
+            function showAbout() {
 
-                if(click2%2 === 0){
+                if (click2 % 2 === 0) {
                     document.getElementById("about_detail").style.display = "block"
-                }else{
+                } else {
                     document.getElementById("about_detail").style.display = "none"
                 }
 
@@ -260,9 +286,9 @@
 
 
 
-                if(click%2 === 0){
+                if (click % 2 === 0) {
                     document.getElementById("all_upload_res_div").style.display = "flex"
-                }else{
+                } else {
                     document.getElementById("all_upload_res_div").style.display = "none"
                 }
 
