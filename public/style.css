@@ -884,6 +884,11 @@ strong{
   #about_detail > ul > li{
     font-size: 1rem;
   }
+
+  .cancel{
+    margin-left: 90%;
+    margin-bottom: 2%;
+  }
   
 
   #all_upload_res_div>div>p {
