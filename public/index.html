@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1 , user-scalable=no">
 
         <!-- Now i have cloudinary link for my favicon image haha haha -->
-        <link rel="icon" type="image/png/x-icon/" href="../uploads/favicon.png">
+        <!-- <link rel="icon" type="image/png/x-icon/" href="../uploads/favicon.png"> -->
+        <link rel="shortcut icon" type="image/png/x-icon/" href="./favicon.png" />
 
 
         <title>File upload with Multer</title>
@@ -79,6 +80,8 @@
                                         to <strong>private</strong> ( <strong>Not everyone can see , but i can see
                                             all</strong> pictures and videos that upload on this website).</li>
                                 </ul>
+
+                                <button class="cancel" onclick="cancleAbout()">X</button>
                             </div>
 
                         </div>
@@ -180,7 +183,7 @@
         </main>
         <p id="water_mark">By Ashish Kuldeep</p>
 
-        
+
 
 
 
@@ -227,10 +230,14 @@
                     document.getElementById("about_detail").style.display = "none"
                 }
 
-
                 click2++
             }
 
+
+            function cancleAbout(){
+                click2++
+                document.getElementById("about_detail").style.display = "none"
+            }
 
 
 
@@ -282,7 +289,7 @@
                 }
 
 
-                document.getElementById("all_upload_res_div").innerHTML = divForRes
+                document.getElementById("all_upload_res_div").innerHTML =  ` ${divForRes} <button class="cancel" onclick=${"cancleAllPreUploads()"}>X</button>`
 
 
 
@@ -299,6 +306,12 @@
 
 
 
+
+            function cancleAllPreUploads(){
+                click++
+                // console.log(click)
+                document.getElementById("all_upload_res_div").style.display = "none"
+            }
 
 
 

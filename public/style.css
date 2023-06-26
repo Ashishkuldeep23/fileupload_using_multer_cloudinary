@@ -157,7 +157,7 @@ strong{
 
   min-height: 28vh;
 
-  /* height: fit-content; */
+  height: fit-content;
 }
 
 
@@ -201,6 +201,20 @@ strong{
   margin: 0 1vh;
   color: black;
   font-weight: 100;
+}
+
+
+.cancel{
+  margin-left: 95%;
+  border-radius: 1vh;
+  background-color: red;
+  padding: 0.5vh;
+  color: white;
+  font-weight: bolder;
+}
+
+.cancel:hover{
+  background-color: yellow;
 }
 
 .first {
@@ -438,6 +452,7 @@ strong{
   font-weight: bolder;
   color: #fff;
   text-decoration: underline;
+  animation: waterMarkBig infinite ease-in-out 1s alternate;
 }
 
 
@@ -566,6 +581,19 @@ strong{
 }
 
 
+/* Animation for watermark  */
+
+@keyframes waterMarkBig {
+
+  0%{
+    transform: scale(1);
+  }
+
+  100%{
+    transform: scale(1.5) translate(-20px , -5px);
+  }
+  
+}
 
 
 
@@ -595,7 +623,9 @@ strong{
 
   
   .third{
-    height: 28vh;
+
+    height: 28vh !important;
+
     overflow-y: auto;
   }
 
@@ -680,9 +710,26 @@ strong{
 
 
   .third{
-    height: 28vh;
+
+    height: 28vh !important;
+
     overflow-y: auto;
   }
+
+    .third::-webkit-scrollbar{
+    width: 3px;
+  }
+
+  .third::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  .third::-webkit-scrollbar-thumb {
+    background: blue;
+    border-radius: 10vh;
+  }
+  
 
 
   #all_previous{
