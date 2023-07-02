@@ -267,6 +267,7 @@ a{
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
+  margin-top:0.5vh;
 }
 
 
@@ -318,6 +319,7 @@ a{
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
+  margin-top:0.5vh;
 }
 
 
@@ -423,13 +425,14 @@ a{
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
-
+  margin-top:0.5vh;
 }
 
 #all_upload_res_div>div>video {
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
+  margin-top:0.5vh;
 }
 
 
