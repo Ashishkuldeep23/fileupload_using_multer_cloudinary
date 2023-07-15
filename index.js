@@ -1,5 +1,6 @@
 const express = require('express');
-const multer = require('multer');
+
+require('dotenv').config()
 
 const app = express();
 
@@ -11,11 +12,14 @@ const {uploadForSingleVideo , uploadMultiImage} = require("./uploadHandle.js")
 
 
 
+
 // // // Below two lines used in showing home page --->
 app.use(express.static(process.cwd() + "/public"))
 
 app.get("/" , (req , res)=>{
     // res.status(200).send("Hello World")
+
+    console.log(process.env.CLOUDINARY_CLOUD_NAME)
 
     res.sendFile("/index.html")
 })
