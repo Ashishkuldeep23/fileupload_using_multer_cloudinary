@@ -24,17 +24,17 @@ p {
   font-size: 1.2rem;
 }
 
-strong{
+strong {
   text-decoration: underline;
 }
 
-a{
+a {
   color: darkorchid;
   font-weight: bold;
 }
 
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 4px;
 }
 
@@ -44,7 +44,7 @@ a{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(transparent ,  transparent , transparent , transparent , red , transparent , transparent);
+  background-image: linear-gradient(transparent, transparent, transparent, transparent, red, transparent, transparent);
   border-radius: 10vh;
 }
 
@@ -81,8 +81,8 @@ a{
 
   flex-direction: column;
 
-  background-image: linear-gradient(270deg , #acfaa0 , white , white , #f9f999);
-  
+  background-image: linear-gradient(180deg, #f9d699, white, white, #90ff7f);
+
 
 
 }
@@ -163,7 +163,7 @@ a{
   min-height: 28vh;
 
   height: fit-content;
-  padding:  1vh;
+  padding: 1vh;
 }
 
 
@@ -181,11 +181,11 @@ a{
   width: 100%;
 }
 
-.heading > h2{
+.heading>h2 {
   font-size: 2.5rem;
 }
 
-.heading > button{
+.heading>button {
   margin: 0.5vh 0;
   padding: 0.25vh 0.5vh;
   border-radius: 1.5vh;
@@ -193,16 +193,16 @@ a{
 
 }
 
-.heading > button:hover{
+.heading>button:hover {
   background-color: red;
 
 }
 
-#about_detail{
+#about_detail {
   display: none;
 }
 
-#about_detail > ul > li{
+#about_detail>ul>li {
   text-align: start;
   list-style: inside;
   margin: 0 1vh;
@@ -211,7 +211,7 @@ a{
 }
 
 
-.cancel{
+.cancel {
   margin-left: 95%;
   border-radius: 1vh;
   background-color: red;
@@ -220,7 +220,7 @@ a{
   font-weight: bolder;
 }
 
-.cancel:hover{
+.cancel:hover {
   background-color: yellow;
 }
 
@@ -267,7 +267,7 @@ a{
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
-  margin-top:0.5vh;
+  margin-top: 0.5vh;
 }
 
 
@@ -319,7 +319,7 @@ a{
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
-  margin-top:0.5vh;
+  margin-top: 0.5vh;
 }
 
 
@@ -354,7 +354,7 @@ a{
 }
 
 
-.logos:hover{
+.logos:hover {
   transform: rotate(50deg);
 }
 
@@ -366,7 +366,7 @@ a{
   margin: 1vh 0;
   border-radius: 2vh;
   padding: 0.5vh;
-  border-width: medium ;
+  border-width: medium;
 
   background-color: lightskyblue;
   margin-bottom: 5vh;
@@ -425,14 +425,14 @@ a{
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
-  margin-top:0.5vh;
+  margin-top: 0.5vh;
 }
 
 #all_upload_res_div>div>video {
   width: 100%;
   object-fit: contain;
   border-radius: 0.7vh;
-  margin-top:0.5vh;
+  margin-top: 0.5vh;
 }
 
 
@@ -458,7 +458,7 @@ a{
 }
 
 
-#water_mark{
+#water_mark {
   position: absolute;
   bottom: 2px;
   right: 10px;
@@ -598,14 +598,14 @@ a{
 
 @keyframes waterMarkBig {
 
-  0%{
+  0% {
     transform: scale(1);
   }
 
-  100%{
-    transform: scale(1.5) translate(-20px , -5px);
+  100% {
+    transform: scale(1.5) translate(-20px, -5px);
   }
-  
+
 }
 
 
@@ -625,7 +625,7 @@ a{
     display: none;
   }
 
-  .content >.heading {
+  .content>.heading {
     margin-bottom: 5vh;
     padding: 2vh 0;
     font-size: 0.9rem;
@@ -634,42 +634,42 @@ a{
     min-height: fit-content;
   }
 
-  
-  .third{
+
+  .third {
 
     height: 28vh !important;
 
     overflow-y: auto;
   }
 
-  .third::-webkit-scrollbar{
+  .third::-webkit-scrollbar {
     width: 3px;
   }
 
   .third::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   /* Handle */
   .third::-webkit-scrollbar-thumb {
     /* background: blue; */
-    background-image: linear-gradient(60deg , blue , pink, pink);
+    background-image: linear-gradient(60deg, blue, pink, pink);
     border-radius: 10vh;
   }
-  
 
 
-  #all_previous{
+
+  #all_previous {
     width: 100%;
     min-height: fit-content;
   }
 
 
-  #all_upload_res_div{
+  #all_upload_res_div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
- 
+
   }
 
   #all_upload_res_div>div {
@@ -689,7 +689,7 @@ a{
     background-color: black;
   }
 
-  #last_stand_for_destop{
+  #last_stand_for_destop {
     display: block;
     background-color: black;
     width: 30%;
@@ -713,7 +713,7 @@ a{
     display: none;
   }
 
-  .content >.heading {
+  .content>.heading {
     margin-bottom: 5vh;
     padding: 2vh 0;
     font-size: 0.9rem;
@@ -723,40 +723,40 @@ a{
   }
 
 
-  .third{
+  .third {
 
     height: 28vh !important;
 
     overflow-y: auto;
   }
 
-    .third::-webkit-scrollbar{
+  .third::-webkit-scrollbar {
     width: 3px;
   }
 
   .third::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   /* Handle */
   .third::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(60deg , blue , pink, pink);
+    background-image: linear-gradient(60deg, blue, pink, pink);
     border-radius: 10vh;
   }
-  
 
 
-  #all_previous{
+
+  #all_previous {
     width: 100%;
     min-height: fit-content;
   }
 
 
-  #all_upload_res_div{
+  #all_upload_res_div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
- 
+
   }
 
   #all_upload_res_div>div {
@@ -799,7 +799,7 @@ a{
 
   }
 
-  .heading > h2{
+  .heading>h2 {
     font-size: 2rem;
   }
 
@@ -830,7 +830,7 @@ a{
     min-height: auto;
   }
 
-  .content >.heading {
+  .content>.heading {
     margin-bottom: 5vh;
     padding: 2vh 0;
     font-size: 0.9rem;
@@ -859,7 +859,7 @@ a{
 /* Mobile (Done)*/
 @media ((min-width : 320px) and (max-width : 480px)) {
 
-  .heading > h2{
+  .heading>h2 {
     font-size: 1.2rem;
   }
 
@@ -874,12 +874,12 @@ a{
     height: 90vh;
   }
 
-  .innerDiv{
+  .innerDiv {
     width: 97.5%;
     overflow-x: hidden;
   }
 
-  .content{
+  .content {
     overflow-x: hidden;
   }
 
@@ -895,15 +895,15 @@ a{
     margin-bottom: 5vh;
   }
 
-  #about_detail > ul > li{
+  #about_detail>ul>li {
     font-size: 1rem;
   }
 
-  .cancel{
+  .cancel {
     margin-left: 90%;
     margin-bottom: 2%;
   }
-  
+
 
   #all_upload_res_div>div>p {
     font-size: 0.9rem;
@@ -920,7 +920,7 @@ a{
     font-size: 1.2rem;
   }
 
-  .heading > h2{
+  .heading>h2 {
     font-size: 1.2rem;
   }
 
@@ -929,7 +929,7 @@ a{
     height: 88vh;
   }
 
-  .content{
+  .content {
     overflow-x: hidden;
   }
 
@@ -948,10 +948,10 @@ a{
     min-height: fit-content;
   }
 
-  #about_detail > ul > li{
+  #about_detail>ul>li {
     font-size: 1rem;
   }
-  
+
 
   #all_upload_res_div>div>p {
     font-size: 0.9rem;
